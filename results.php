@@ -14,10 +14,16 @@ $data = array
   );
   // die(var_dump($data));
 
-foreach ($data as $term) {
-  echo '<a href="'. $term['url'] .'">' .$term['text'] .'</a><br>';
-}
-die();
+// foreach ($data as $term) {
+//   echo '<a href="'. $term['url'] .'">' .$term['text'] .'</a><br>';
+// }
+
+  // foreach ($data as $term): 
+    ?>
+<!--       <a href="<?= $term['url'] ?>"><?= $term['text'] ?></a><br> -->
+    <?php
+//   endforeach;
+// die();
 
 
 require "partials/header.php";
@@ -29,54 +35,28 @@ require "partials/navigation.php";
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h4>Search results for <strong><?= $searchQuery; ?></strong></h4>
+      
+      <?php
+        foreach ($data as $term): 
+      ?>
       <!-- Displayed results -->
       <ul class="list-group">
+        
         <!-- Single Result -->
         <li class="list-group-item notification-bar-fail m-b-1">
-          <div href="#" class="notification-bar-icon">
-            <div>
-              <i></i>
-            </div>
-          </div>
-
           <div class="notification-bar-details">
-          <a href="$url" class="notification-bar-title">
-              $searchQuery['text']
+            <a href= "<?= $term ['url']?> " class="notification-bar-title">
+              <?= $term['text']?>
             </a>
-            <span class="text-muted">$searchQuery['url']</span>
+            <span class="text-muted">
+            <?= $term['url']?></span>
           </div>
         </li>
         <!-- End of single result -->
-        <li class="list-group-item notification-bar-fail m-b-1">
-          <div href="#" class="notification-bar-icon">
-            <div>
-              <i></i>
-            </div>
-          </div>
+        <?php
+          endforeach;
+        ?>
 
-          <div class="notification-bar-details">
-          <a href="$url" class="notification-bar-title">
-              $searchQuery['text']
-            </a>
-            <span class="text-muted">$searchQuery['url']</span>
-          </div>
-        </li>
-        <!-- End of single result -->
-        <li class="list-group-item notification-bar-fail m-b-1">
-          <div href="#" class="notification-bar-icon">
-            <div>
-              <i></i>
-            </div>
-          </div>
-
-          <div class="notification-bar-details">
-          <a href="$url" class="notification-bar-title">
-              $searchQuery['text']
-            </a>
-            <span class="text-muted">$searchQuery['url']</span>
-          </div>
-        </li>
-        <!-- End of single result -->
       </ul>
     </div>
   </div>
