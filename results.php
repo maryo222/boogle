@@ -14,6 +14,7 @@ $searchQuery = $_GET['q']
   <link rel="stylesheet" type="text/css" href="css/app.css">
   <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
+
 <body>
   <nav class="navbar navbar-default navbar-static-top">
     <div class="container">
@@ -38,7 +39,7 @@ $searchQuery = $_GET['q']
         <li>
           <form action="results.php" method="get">
             <div class="field top-bar-search" id="searchform">
-              <input type="text" name="q" autofocus required value="<?php echo $searchQuery?>" />
+              <input type="text" name="q" autofocus required value="<?= $searchQuery; ?>" />
             </div>
           </form>
         </li>
@@ -51,7 +52,7 @@ $searchQuery = $_GET['q']
 <div class="container">
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
-      <h4>Search results for <strong><?php echo $searchQuery; ?> </strong></h4>
+      <h4>Search results for <strong><?= $searchQuery; ?> </strong></h4>
       <!-- Displayed results -->
       <ul class="list-group">
         <!-- Single Result -->
