@@ -1,6 +1,5 @@
 <?php 
 require "partials/header.php";
-require "partials/footer.php";
 ?>
 
   <div class="container">
@@ -33,3 +32,7 @@ require "partials/footer.php";
       <div class="col-md-3"></div>
     </div>
   </div>
+
+<?php
+require "partials/footer.php";
+?>

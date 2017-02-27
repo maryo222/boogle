@@ -2,10 +2,7 @@
 $searchQuery = $_GET['q'];
 require "partials/header.php";
 require "partials/navigation.php";
-require "partials/footer-bottom.php";
 ?>
-
-  
 
 <!-- Content -->
 <div class="container">
@@ -64,4 +61,8 @@ require "partials/footer-bottom.php";
     </div>
   </div>
 </div>
+
+<?php
+require "partials/footer-bottom.php";
+?>
 
