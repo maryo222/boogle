@@ -1,5 +1,25 @@
 <?php
 $searchQuery = $_GET['q'];
+
+$data = array
+  (
+    array(
+          'text' => 'apple',
+          'url' => 'http://apple.com',
+    ),
+    array(
+          'text' => 'Bakers Delight',
+          'url' => 'http://bakersdelight.co.nz',
+    )
+  );
+  // die(var_dump($data));
+
+foreach ($data as $term) {
+  echo '<a href="'. $term['url'] .'">' .$term['text'] .'</a><br>';
+}
+die();
+
+
 require "partials/header.php";
 require "partials/navigation.php";
 ?>
