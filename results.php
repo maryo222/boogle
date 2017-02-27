@@ -1,17 +1,22 @@
 <?php
 $searchQuery = $_GET['q'];
 
-$data = array
-  (
-    array(
-          'text' => 'apple',
-          'url' => 'http://apple.com',
-    ),
-    array(
-          'text' => 'Bakers Delight',
-          'url' => 'http://bakersdelight.co.nz',
-    )
-  );
+$data = require 'includes/data.php';
+
+
+function filterResults($searchQuery, $data) {
+        $matches = [];
+ 
+        foreach ($data as $key => $value) {
+          if (strpos(strtolower($value['text']), strtolower($searchQuery)) !== false) {
+            $matches[] = $value;
+          }
+        }
+        return $matches;
+    }
+ 
+$terms = filterResults($searchQuery, $data);
+
   // die(var_dump($data));
 
 // foreach ($data as $term) {
@@ -35,9 +40,36 @@ require "partials/navigation.php";
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <h4>Search results for <strong><?= $searchQuery; ?></strong></h4>
-      
+
+
       <?php
-        foreach ($data as $term): 
+        if (empty($terms)):
+        ?>
+        <li class="list-group-item notification-bar-fail m-b-1">
+
+
+          <div class="notification-bar-details">
+            <h3 class="notification-bar-title">
+              Nothing was found :(<br>
+            </h3>
+            <p>
+              <strong>Suggestions:</strong>
+              <ul>
+                <li>Make sure that all words are spelled correctly.</li>
+                <li>Try different keywords.</li>
+                <li>Try more general keywords.</li>
+              </ul>
+
+            </p>
+          </div>
+        </li>
+        <!-- End of single result -->
+        <?php
+        else:
+// the foreach code should be here..... don't forget to close the if statement below!
+      
+      
+        foreach ($terms as $term): 
       ?>
       <!-- Displayed results -->
       <ul class="list-group">
@@ -55,6 +87,7 @@ require "partials/navigation.php";
         <!-- End of single result -->
         <?php
           endforeach;
+          endif;
         ?>
 
       </ul>
