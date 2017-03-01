@@ -1,4 +1,6 @@
-<?php include 'partials/header.php'; ?>
+<?php
+include 'partials/header.php'; 
+?>
 
 <h1>
   <a href="index.php">
@@ -6,6 +8,16 @@
   </a>
 </h1>
 
-<!-- Here is where you'll write your form... -->
+<div class="container">
+<form action="thanks.php" method="POST"> 
+	Name: <input type="text" name="name" placeholder="name">
+		<br><br>
+	Email: <input type="text" name="email" placeholder="email">
+		<br><br>
+	Feedback <textarea name="feedback" rows="5" cols="40"></textarea>
+		<br><br>
+<input type="submit">
+</form>
+</div>
 
 <?php include 'partials/footer.php'; ?>
